@@ -1075,7 +1075,7 @@
   lineinfile:
     dest: /etc/login.defs
     regexp: ^#?CREATE_HOME
-    line: "CREATE_HOME {{ rhel7stig_login_defaults.create_home | default('yes') }}"
+    line: "CREATE_HOME yes"
   when: rhel_07_020610
   tags:
   - RHEL-07-020610
