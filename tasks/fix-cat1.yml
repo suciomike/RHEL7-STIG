@@ -297,6 +297,15 @@ n digitally signed using a certificate that is issued by a Certificate Authority
   tags:
       - RHEL-07-020230
 
+- name: "HIGH | RHEL-07-020230 | PATCH | The Red Hat Enterprise Linux operating system must be configured so that the x86 Ctrl-Alt-Delete key sequence is disabled."
+  systemd:
+    name: ctrl-alt-del.target
+    masked: yes
+  when: rhel_07_020230
+  tags:
+      - RHEL-07-020230
+
+
 - name: "HIGH | RHEL-07-020231 | PATCH | The Red Hat Enterprise Linux operating system must be configured so that the x86 Ctrl-Alt-Delete key sequence is disabled in the GUI."
   copy:
     dest: /etc/dconf/db/local.d/00-disable-ctrl-alt-del
@@ -454,6 +463,13 @@ data-at-rest protections in accordance with applicable federal laws, Executive O
     - not ansible_check_mode or
       rhel_07_021350_audit.rc > 1
   when: 
+  - rhel_07_021350
+  tags:
+  - RHEL-07-021350
+
+- name: Rebuild grub.cfg
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+  when:
   - rhel_07_021350
   tags:
   - RHEL-07-021350

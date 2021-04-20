@@ -1,0 +1,21 @@
+- name: Modify the System Login Banner - remove incorrect banner
+  file:
+    state: absent
+    path: /etc/issue
+  tags:
+  - banner-fix
+
+- name: Modify the System Login Banner - add correct banner
+  template:
+    src: dod-banner.j2
+    dest: /etc/issue
+  tags:
+  - banner-fix
+
+- name: Add Classification to bashrc
+  template:
+    src: classification.j2
+    dest: /etc/profile.d/classification.sh
+  tags:
+  - classification
+
