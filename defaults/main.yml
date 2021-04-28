@@ -14,13 +14,13 @@ python2_bin: /bin/python2.7
 benchmark: RHEL7-STIG
 
 # Enable goss binary download
-rhel7stig_setup_audit: true
+rhel7stig_setup_audit: false
 # options are download from github or copy from pre downloaded location
 # copy or download
 get_goss_file: copy
 
 # enable audits to run
-rhel7stig_run_audit: true
+rhel7stig_run_audit: false
 
 # We've defined complexity-high to mean that we cannot automatically remediate
 # the rule in question.  In the future this might mean that the remediation
@@ -319,7 +319,7 @@ rhel7stig_gui: false
 rhel7stig_always_configure_dconf: true
 
 # Whether or not to run tasks related to smart card authentication enforcement
-rhel7stig_smartcard: true
+rhel7stig_smartcard: false
 # Configure your smartcard driver
 rhel7stig_smartcarddriver: cackey
 
@@ -397,13 +397,8 @@ rhel7stig_start_firewall_service: true
 # RHEL-07-031010
 rhel7stig_system_is_log_aggregator: false
 
-<<<<<<< HEAD
-rhel7stig_use_FIPS: true
-fips_value: fips=1
-=======
 rhel7stig_use_fips: true
 fips_value: '0'
->>>>>>> ca70fea3f3246e597fe05e804de2560b8c594963
 rhel7stig_FIPS_ciphers: aes256-ctr,aes192-ctr,aes128-ctr
 rhel7stig_FIPS_MACs: hmac-sha2-512,hmac-sha2-256
 # RHEL-07-040300
